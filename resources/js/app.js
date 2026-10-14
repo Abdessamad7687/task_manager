@@ -109,6 +109,8 @@ if (list && list.children.length) {
             ? 0
             : 150,
         ghostClass: "opacity-25",
+        chosenClass: "bg-primary-subtle",
+        dragClass: "shadow",
         onStart: () => {
             beforeDrag = rows();
         },

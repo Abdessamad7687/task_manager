@@ -35,7 +35,12 @@
                         <dt class="col-sm-4">Created</dt><dd class="col-sm-8">{{ $task->created_at->format('M j, Y · H:i') }} UTC</dd>
                         <dt class="col-sm-4">Last updated</dt><dd class="col-sm-8">{{ $task->updated_at->format('M j, Y · H:i') }} UTC</dd>
                     </dl>
-                    <div class="d-flex gap-2"><button class="btn btn-primary" type="submit">Save changes</button><a class="btn btn-outline-secondary" href="{{ route('tasks.index', ['project_id' => $task->project_id]) }}">Cancel</a></div>
+                    <div class="d-flex gap-2">
+                        <button class="btn btn-primary" type="submit">
+                            <svg class="align-text-bottom me-1" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12 4 4L19 6"/></svg>Save changes
+                        </button>
+                        <a class="btn btn-outline-secondary" href="{{ route('tasks.index', ['project_id' => $task->project_id]) }}">Cancel</a>
+                    </div>
                 </form>
             </div>
         </section>

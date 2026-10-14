@@ -1,1 +1,15 @@
 @import "bootstrap/dist/css/bootstrap.min.css";
+
+.task-row {
+    cursor: grab;
+}
+
+.task-row:active,
+.task-row.bg-primary-subtle {
+    cursor: grabbing;
+}
+
+.task-row a,
+.task-row button {
+    cursor: pointer;
+}

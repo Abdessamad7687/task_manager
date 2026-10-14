@@ -26,7 +26,9 @@
                             <label for="project-name" class="form-label">Project name</label>
                             <input class="form-control @error('name', 'project') is-invalid @enderror" id="project-name" name="name" maxlength="100" required value="{{ $errors->project->any() ? old('name') : '' }}" @error('name', 'project') aria-invalid="true" aria-describedby="project-name-error" @enderror>
                             @error('name', 'project')<div class="invalid-feedback" id="project-name-error">{{ $message }}</div>@enderror
-                            <button class="btn btn-primary btn-sm mt-2" type="submit">Create project</button>
+                            <button class="btn btn-primary btn-sm mt-2" type="submit">
+                                <svg class="align-text-bottom me-1" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg>Create project
+                            </button>
                         </form>
                     </details>
                 </div>
@@ -54,7 +56,11 @@
                                 <input class="form-control @error('priority') is-invalid @enderror" type="number" name="priority" id="task-priority" min="1" max="{{ $tasks->count() + 1 }}" value="{{ old('priority', $tasks->count() + 1) }}" required @error('priority') aria-invalid="true" aria-describedby="task-priority-error" @enderror>
                                 @error('priority')<div class="invalid-feedback" id="task-priority-error">{{ $message }}</div>@enderror
                             </div>
-                            <div class="col-12"><button type="submit" class="btn btn-primary">Add task</button></div>
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-primary">
+                                    <svg class="align-text-bottom me-1" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg>Add task
+                                </button>
+                            </div>
                         </form>
                     </div>
                     <div class="card-body py-2 d-flex justify-content-between gap-3 text-body-secondary small">
@@ -64,7 +70,7 @@
                     <div id="reorder-error" class="alert alert-danger mx-3" role="alert" hidden><span></span> <a class="alert-link" href="{{ route('tasks.index', ['project_id' => $project->id]) }}">Reload tasks</a></div>
                     <ol class="list-group list-group-flush list-unstyled mb-0" id="task-list" data-project-id="{{ $project->id }}" data-version="{{ $version }}" data-reorder-url="{{ route('tasks.reorder') }}">
                         @foreach ($tasks as $task)
-                            <li class="list-group-item task-row" data-id="{{ $task->id }}">
+                            <li class="list-group-item list-group-item-action task-row" data-id="{{ $task->id }}">
                                 <div class="row g-2 align-items-center py-1">
                                     <div class="col-auto"><span class="drag-handle text-body-secondary fs-4 user-select-none" title="Drag to reorder" aria-hidden="true">⠿</span></div>
                                     <div class="col-auto"><span class="priority-badge badge text-bg-primary" aria-label="Priority {{ $task->priority }}">#{{ $task->priority }}</span></div>
@@ -77,10 +83,14 @@
                                             <button type="button" data-move="up" class="btn btn-outline-secondary" aria-label="Move {{ $task->name }} up" title="Move up">↑</button>
                                             <button type="button" data-move="down" class="btn btn-outline-secondary" aria-label="Move {{ $task->name }} down" title="Move down">↓</button>
                                         </div>
-                                        <a href="{{ route('tasks.edit', $task) }}" class="btn btn-outline-primary btn-sm" aria-label="Edit {{ $task->name }}">Edit</a>
+                                        <a href="{{ route('tasks.edit', $task) }}" class="btn btn-outline-primary btn-sm" aria-label="Edit {{ $task->name }}">
+                                            <svg class="align-text-bottom me-1" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m16 4 4 4M3 21l4-1L20 7a2.83 2.83 0 0 0-4-4L3 16z"/></svg>Edit
+                                        </a>
                                         <form method="post" action="{{ route('tasks.destroy', $task) }}" data-delete-form>
                                             @csrf @method('DELETE')
-                                            <button class="btn btn-outline-danger btn-sm" type="submit" aria-label="Delete {{ $task->name }}">Delete</button>
+                                            <button class="btn btn-outline-danger btn-sm" type="submit" aria-label="Delete {{ $task->name }}">
+                                                <svg class="align-text-bottom me-1" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 6h18M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2M5 6l1 14a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1l1-14M10 10v7m4-7v7"/></svg>Delete
+                                            </button>
                                         </form>
                                     </div>
                                 </div>
