@@ -5,7 +5,7 @@ A small Laravel 13 application using PHP 8.3+, MySQL, Blade, and Bootstrap 5.3. 
 ## Features
 
 - Create, edit, and delete tasks with a name, priority, project, and Laravel's `created_at` / `updated_at` timestamps.
-- Drag a task by its handle to reorder it. Priorities save automatically as **1, 2, 3, …** from top to bottom.
+- Drag a task row up or down to reorder it; the task name, priority badge, and dotted handle all work. Priorities save automatically as **1, 2, 3, …** from top to bottom.
 - Move-up/down buttons provide keyboard-friendly reordering. Manual priority editing also works without JavaScript.
 - Create projects and select one from the dropdown to see only its tasks.
 - A fresh installation includes an empty **Inbox** project; it contains no sample tasks.

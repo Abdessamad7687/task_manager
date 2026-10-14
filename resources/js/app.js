@@ -102,7 +102,9 @@ if (list && list.children.length) {
         }
     };
     const sortable = Sortable.create(list, {
-        handle: ".drag-handle",
+        draggable: ".task-row",
+        filter: "a, button, input, select, textarea, form",
+        preventOnFilter: false,
         animation: window.matchMedia("(prefers-reduced-motion: reduce)").matches
             ? 0
             : 150,

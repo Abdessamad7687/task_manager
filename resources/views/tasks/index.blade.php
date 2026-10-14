@@ -58,7 +58,7 @@
                         </form>
                     </div>
                     <div class="card-body py-2 d-flex justify-content-between gap-3 text-body-secondary small">
-                        <span>Drag the handle to reorder</span>
+                        <span>Drag a task up or down to set its priority</span>
                         <span id="save-status" role="status" aria-live="polite"></span>
                     </div>
                     <div id="reorder-error" class="alert alert-danger mx-3" role="alert" hidden><span></span> <a class="alert-link" href="{{ route('tasks.index', ['project_id' => $project->id]) }}">Reload tasks</a></div>
