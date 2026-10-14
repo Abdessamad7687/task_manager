@@ -136,7 +136,7 @@ Use PHP 8.3 with `mysqli` enabled. The configured MySQL host is `127.0.0.1`, por
 
 ```sh
 php artisan test --compact
-vendor/bin/pint --format agent
+vendor/bin/pint
 npm run build
 ```
 
@@ -244,6 +244,5 @@ For subsequent releases, back up MySQL and preserve `.env`, `APP_KEY`, and `stor
 
 A reorder request must contain each task in the selected project exactly once, plus the version rendered with the list. Invalid or stale requests leave the database unchanged. On an uncertain network failure, the browser restores its previous display and requires a reload before another reorder.
 
-Laravel Boost is a development-only dependency added by the Laravel starter's agent setup; it is not installed by `composer install --no-dev`.
 
 References: [Laravel installation](https://laravel.com/framework/docs), [Laravel deployment](https://laravel.com/framework/docs/deployment), [Bootstrap documentation](https://getbootstrap.com/docs/5.3/).

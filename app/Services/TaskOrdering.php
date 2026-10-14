@@ -10,7 +10,6 @@ use Illuminate\Validation\ValidationException;
 
 class TaskOrdering
 {
-    /** @param array{name: string, project_id: int|numeric-string, priority?: int|numeric-string|null} $data */
     public function create(array $data): Task
     {
         return DB::transaction(function () use ($data) {
@@ -25,7 +24,6 @@ class TaskOrdering
         }, 3);
     }
 
-    /** @param array{name: string, project_id: int|numeric-string, priority?: int|numeric-string|null} $data */
     public function update(Task $task, array $data): Task
     {
         return DB::transaction(function () use ($task, $data) {
@@ -59,7 +57,6 @@ class TaskOrdering
         }, 3);
     }
 
-    /** @param list<int|numeric-string> $ids */
     public function reorder(int $projectId, array $ids, string $version): Collection
     {
         return DB::transaction(function () use ($projectId, $ids, $version) {
@@ -96,8 +93,7 @@ class TaskOrdering
 
     private function lockProjects(array $ids): void
     {
-        // Lock even empty lists. Consistent parent lock order avoids deadlocks
-        // when requests move tasks between the same projects.
+
         Project::whereIn('id', array_unique($ids))->orderBy('id')->lockForUpdate()->get();
     }
 

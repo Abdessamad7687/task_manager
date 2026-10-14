@@ -91,8 +91,6 @@ if (list && list.children.length) {
                 failure.message ||
                 "Connection lost. Reload tasks to check the saved order.";
             error.hidden = false;
-            // A network failure may happen after the server committed. Require
-            // a reload rather than retrying with uncertain local state.
             blocked = true;
         } finally {
             busy = false;

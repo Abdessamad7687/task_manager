@@ -22,7 +22,7 @@ return new class extends Migration
             $table->timestamps();
             $table->index(['project_id', 'priority']);
         });
-        // A fresh installation can create tasks immediately, without a seeder.
+
         DB::table('projects')->insert(['name' => 'Inbox', 'created_at' => now(), 'updated_at' => now()]);
     }
 

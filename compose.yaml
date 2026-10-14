@@ -1,4 +1,3 @@
-# Optional local MySQL database. Run the PHP application on the host.
 services:
   mysql:
     image: mysql:8.4
