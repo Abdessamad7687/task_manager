@@ -7,7 +7,7 @@ projectFilter?.addEventListener("change", () =>
 
 document.querySelectorAll("[data-delete-form]").forEach((form) => {
     form.addEventListener("submit", (event) => {
-        if (!window.confirm("Delete this task? This cannot be undone.")) {
+        if (!window.confirm("confirm")) {
             event.preventDefault();
         }
     });
