@@ -26,11 +26,10 @@
                         </div>
                         <div class="col-sm-4">
                             <label for="edit-priority" class="form-label">Priority</label>
-                            <input class="form-control @error('priority') is-invalid @enderror" type="number" id="edit-priority" name="priority" min="1" value="{{ old('priority', $task->priority) }}" required aria-describedby="priority-help @error('priority') priority-error @enderror" @error('priority') aria-invalid="true" @enderror>
+                            <input class="form-control @error('priority') is-invalid @enderror" type="number" id="edit-priority" name="priority" min="1" value="{{ old('priority', $task->priority) }}" required @error('priority') aria-invalid="true" aria-describedby="priority-error" @enderror>
                             @error('priority')<div class="invalid-feedback" id="priority-error">{{ $message }}</div>@enderror
                         </div>
                     </div>
-                    <p class="form-text mt-3" id="priority-help">#1 is the top of the list. Other tasks shift automatically to make room.</p>
                     <dl class="row small text-body-secondary border-top pt-3 mt-4">
                         <dt class="col-sm-4">Created</dt><dd class="col-sm-8">{{ $task->created_at->format('M j, Y · H:i') }} UTC</dd>
                         <dt class="col-sm-4">Last updated</dt><dd class="col-sm-8">{{ $task->updated_at->format('M j, Y · H:i') }} UTC</dd>
