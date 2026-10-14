@@ -1,8 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1 class="h2">Tasks</h1>
-    <p class="text-body-secondary mb-4">Choose a project and put your tasks in order. Priority #1 comes first.</p>
+    <h1 class="h2 mb-4">Tasks</h1>
 
     <div class="row g-4">
         <aside class="col-lg-3">
@@ -63,10 +62,7 @@
                             </div>
                         </form>
                     </div>
-                    <div class="card-body py-2 d-flex justify-content-between gap-3 text-body-secondary small">
-                        <span>Drag a task up or down to set its priority</span>
-                        <span id="save-status" role="status" aria-live="polite"></span>
-                    </div>
+                    <span id="save-status" class="d-block small text-body-secondary text-end px-3" role="status" aria-live="polite"></span>
                     <div id="reorder-error" class="alert alert-danger mx-3" role="alert" hidden><span></span> <a class="alert-link" href="{{ route('tasks.index', ['project_id' => $project->id]) }}">Reload tasks</a></div>
                     <ol class="list-group list-group-flush list-unstyled mb-0" id="task-list" data-project-id="{{ $project->id }}" data-version="{{ $version }}" data-reorder-url="{{ route('tasks.reorder') }}">
                         @foreach ($tasks as $task)
@@ -99,8 +95,6 @@
                     </ol>
                     @if ($tasks->isEmpty())
                         <div class="card-body text-center py-5"><h3 class="h5">No tasks yet.</h3><p class="text-body-secondary mb-0">Add your first task using the form above.</p></div>
-                    @else
-                        <div class="card-footer small text-body-secondary">Reordering saves automatically. You can also use the arrow buttons or edit a task’s priority.</div>
                     @endif
                     <noscript><p class="small text-body-secondary m-3">To reorder tasks without JavaScript, choose Edit and change the priority.</p></noscript>
                 @else
